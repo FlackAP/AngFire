@@ -12,11 +12,6 @@ angular.module('myApp',
          controller: 'HomeCtrl'
       });
 
-      $routeProvider.when('/chat', {
-         templateUrl: 'partials/chat.html',
-         controller: 'ChatCtrl'
-      });
-
       $routeProvider.when('/account', {
          authRequired: true, // must authenticate before viewing this page
          templateUrl: 'partials/account.html',
@@ -28,7 +23,7 @@ angular.module('myApp',
          controller: 'LoginCtrl'
       });
 
-      $routeProvider.otherwise({redirectTo: '/home'});
+      $routeProvider.otherwise({redirectTo: '/login'});
    }])
 
 
