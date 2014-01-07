@@ -8,6 +8,7 @@ angular.module('myApp',
    // configure views; note the authRequired parameter for authenticated pages
    .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/home', {
+         authRequired: true,
          templateUrl: 'partials/home.html',
          controller: 'HomeCtrl'
       });
