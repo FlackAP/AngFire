@@ -20,8 +20,8 @@ describe('my app', function() {
   });
 
 
-  it('should automatically redirect to /home when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/home");
+  it('should automatically redirect to /login when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/login");
   });
 
 
@@ -32,24 +32,13 @@ describe('my app', function() {
     });
 
 
-    it('should render home when user navigates to /home', function() {
+    it('should render login when unauthenticated user navigates to /home', function() {
       expect(element('[ng-view] h2:first').text()).
-        toMatch(/Home/);
+        toMatch(/Login/);
     });
 
   });
 
-
-  describe('chat', function() {
-     beforeEach(function() {
-        browser().navigateTo('#/chat');
-     });
-
-     it('should render chat when user navigates to /chat', function() {
-        expect(element('[ng-view] h2:first').text()).
-           toMatch(/Chat/);
-     });
-  });
 
    describe('account', function() {
       afterEach(function() {
@@ -84,13 +73,21 @@ describe('my app', function() {
          expect(element('[ng-view] h2:first').text()).toMatch('Login Page');
       });
 
-      it('should show error if no email', function() {
+      it('should toss error if no email is provided', function() {
          expect(element('p.error').text()).toEqual('');
          input('email').enter('');
          input('pass').enter('test123');
          element('button[ng-click="login()"]').click();
          expect(element('p.error').text()).not().toEqual('');
       });
+
+      it('should toss error if email format is incorrect', function() {
+        expect(element('p.error')).text()).toEqual('');
+        input('email').enter('YaBlewIt');
+        input('pass').enter('testing');
+        element('button[ng-click="login()]').click();
+        expect(element('p.error').text()).not.toEqual('');
+      })
 
       it('should show error if no password', function() {
          expect(element('p.error').text()).toEqual('');

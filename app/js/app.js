@@ -24,6 +24,8 @@ angular.module('myApp',
          controller: 'LoginCtrl'
       });
 
+
+
       $routeProvider.otherwise({redirectTo: '/login'});
    }])
 
