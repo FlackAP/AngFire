@@ -96,12 +96,11 @@ describe('my app', function() {
       });
 
       it('should toss error if email format is incorrect', function() {
-        expect(element('p.error')).text()).toEqual('');
         input('email').enter('YaBlewIt');
         input('pass').enter('testing');
-        element('button[ng-click="login()]').click();
-        expect(element('p.error').text()).not.toEqual('');
-      })
+        element('button[ng-click="login()"]').click();
+        expect(element('p.error').text()).not().toEqual('');
+      });
 
       it('should show error if no password', function() {
          expect(element('p.error').text()).toEqual('');
