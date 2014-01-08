@@ -3,10 +3,15 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
+   .controller('HomeCtrl', ['$scope', '$http', 'syncData', function($scope, $http, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
+      var wow = $http.get('https://api.mongolab.com/api/1/databases/ascrum/collections/users',
+                 { params: {
+                   apiKey:'4fb51e55e4b02e56a67b0b66'  
+                   }
+                 });
+      console.log(wow)
    }])
-
 
    .controller('LoginCtrl', ['$scope', 'loginService', '$location', function($scope, loginService, $location) {
       $scope.email = null;
