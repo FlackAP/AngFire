@@ -110,4 +110,8 @@ angular.module('myApp.controllers', [])
          }
       }
 
-   }]);
+   }])
+
+   .controller('PatientCtrl', ['$scope', '$location', 'firebase', function($scope, $location, firebase)
+
+      ])
