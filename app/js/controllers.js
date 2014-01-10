@@ -5,9 +5,8 @@
 angular.module('myApp.controllers', [])
    .controller('HomeCtrl', ['$scope', '$http', 'syncData', function($scope, $http, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
-      var wow = $http.get('https://api.mongolab.com/api/1/databases/ascrum/collections/users',
+      var wow = $http.get('/app/js/account-example.json',
                  { params: {
-                   apiKey:'4fb51e55e4b02e56a67b0b66'  
                    }
                  });
       console.log(wow)

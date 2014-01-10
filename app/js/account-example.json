@@ -1,4 +1,4 @@
-"accounts" = [
+[{"accounts" : [
  {
       "user_id": 12345,
       "isActive": true,
@@ -29,64 +29,4 @@
       "created_at": "2012-10-18T23:05:20 +04:00",
       "updated_at": "2013-02-26T07:10:40 +05:00"
   }
-],
-
-"patients" = [
-  { 
-      "user_id": 12345,
-      "account_id": 12345,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 78262,
-      "account_id": 12345,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 15365,
-      "account_id": 66666,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 11111,
-      "account_id": 78906,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  { 
-      "user_id": 12315,
-      "account_id": 12345,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 18662,
-      "account_id": 12345,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 15999,
-      "account_id": 45654,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  },
-  {
-      "user_id": 11111,
-      "account_id": 78906,
-      "isActive": true,
-      "created_at": "2013-11-28T10:17:48 +05:00",
-      "updated_at": "2014-01-09T05:03:30 +04:00"
-  }
-
-]
+]}];
