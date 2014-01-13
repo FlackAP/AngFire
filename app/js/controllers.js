@@ -32,10 +32,10 @@ angular.module('myApp.controllers', [])
             $scope.err = 'Please enter a password';
          }
          else {
-            loginService.login($scope.email, $scope.pass, function(err, user) {
+            loginService.login($scope.email, $scope.pass, function(err, account) {
                $scope.err = err? err + '' : null;
                if( !err ) {
-                  cb && cb(user);
+                  cb && cb(account);
                }
             });
          }
@@ -52,14 +52,14 @@ angular.module('myApp.controllers', [])
             $scope.err = 'Passwords do not match';
          }
          else {
-            loginService.createAccount($scope.email, $scope.pass, function(err, user) {
+            loginService.createAccount($scope.email, $scope.pass, function(err, account) {
                if( err ) {
                   $scope.err = err? err + '' : null;
                }
                else {
                   // must be logged in before I can write to my profile
                   $scope.login(function() {
-                     loginService.createProfile(user.uid, user.email);
+                     loginService.createProfile(account.id, account.email);
                   });
                }
             });
@@ -68,7 +68,7 @@ angular.module('myApp.controllers', [])
    }])
 
    .controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '$location', function($scope, loginService, syncData, $location) {
-      syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
+      syncData(['accounts', $scope.auth.accounts.id]).$bind($scope, 'account');
 
       $scope.logout = function() {
          loginService.logout();
@@ -91,7 +91,7 @@ angular.module('myApp.controllers', [])
 
       function buildPwdParms() {
          return {
-            email: $scope.auth.user.email,
+            email: $scope.auth.account.email,
             oldpass: $scope.oldpass,
             newpass: $scope.newpass,
             confirm: $scope.confirm,

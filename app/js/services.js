@@ -54,11 +54,11 @@
                      email: email,
                      password: pass,
                      rememberMe: true
-                  }).then(function(user) {
+                  }).then(function(account) {
                      if( callback ) {
                         //todo-bug https://github.com/firebase/angularFire/issues/199
                         $timeout(function() {
-                           callback(null, user);
+                           callback(null, account);
                         });
                      }
                   }, callback);
@@ -85,7 +85,7 @@
 
                createAccount: function(email, pass, callback) {
                   assertAuth();
-                  auth.$createUser(email, pass, callback);
+                  auth.$createAccount(email, pass, callback);
                },
 
                createProfile: profileCreator
@@ -98,7 +98,7 @@
 
       .factory('profileCreator', ['firebaseRef', '$timeout', function(firebaseRef, $timeout) {
          return function(id, email, callback) {
-            firebaseRef('users/'+id).set({email: email, name: firstPartOfEmail(email)}, function(err) {
+            firebaseRef('accounts/'+id).set({email: email, name: firstPartOfEmail(email)}, function(err) {
                //err && console.error(err);
                if( callback ) {
                   $timeout(function() {
